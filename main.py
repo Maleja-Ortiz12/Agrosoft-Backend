@@ -37,9 +37,16 @@ app = FastAPI(
 # Configurar CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["*"],
+    allow_origins=[
+        "http://localhost",
+        "http://localhost:8000",
+        "http://localhost:3000",
+        "https://agrosoft-backend-production.up.railway.app",
+        "https://frontend-production-26a98.up.railway.app",
+        "*" # Mantener el comodín por ahora para asegurar compatibilidad
+    ],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
